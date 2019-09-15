@@ -297,10 +297,10 @@ public class Main {
         Dots a = new Dots(5,9),b= new Dots(-4,12),c = new Dots(15,0);
         int[] array = {1,4,87,5,67,3,9,6,7,0,3,5,6,8,34,22,35,65,7,8,5,6,7,0,10,12,1};
         int[][] matrix = {{1,8,3},{2,4,5},{7,8,9}};
-        System.out.println(calcHours(12000));
+        System.out.println(calcHours(5000));
         System.out.println(areAllNumbersDifferent(122));
         System.out.println(whoIsCloser(a,b,c));
-        System.out.println(printZodiac(5,5));
+        System.out.println(printZodiac(31,1));
         System.out.println(findSumOfFactorials(4));
         System.out.println(isTwoPresent(146));
         System.out.println(calcArrayBorders(array,2,7));

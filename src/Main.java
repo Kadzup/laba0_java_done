@@ -2,49 +2,12 @@ import java.io.*;
 import java.lang.*;
 import java.util.*;
 
-/*
-+ enum - знаки зодиака
-input/output
-+ int - С начала суток прошло N секунд (N — целое). Найти количество полных часов, прошедших с начала суток.
-+ bool - Дано трехзначное число. Проверить истинность высказывания: «Все цифры данного числа различны».
-+ if -    На числовой оси расположены три точки: A, B, C.
-        Определить, какая из двух последних точек (B или C)
-        расположена ближе к A, и вывести эту точку и ее расстояние от точки A.
-switch - Даны два целых числа: D (день) и M (месяц), определяющие правильную дату.
-            Вывести знак Зодиака, соответствующий этой дате:
-            «Водолей» (20.1–18.2),
-            «Рыбы» (19.2–20.3),
-            «Овен» (21.3–19.4),
-            «Телец» (20.4–20.5),
-            «Близнецы» (21.5–21.6),
-            «Рак» (22.6–22.7),
-            «Лев» (23.7–22.8),
-            «Дева» (23.8–22.9),
-            «Весы» (23.9–22.10),
-            «Скорпион» (23.10–22.11),
-            «Стрелец» (23.11–21.12),
-            «Козерог» (22.12–19.1).
-for -   Дано целое число N (> 0). Используя один цикл, найти сумму
-        1! + 2! + 3! + … + N!
-        (выражение N! — N–факториал — обозначает произведение всех
-        целых чисел от 1 до N:    N! = 1·2·…·N). Чтобы избежать
-        целочисленного переполнения, проводить вычисления с помощью
-        вещественных переменных и вывести результат как вещественное число.
-while - Дано целое число N (> 0). С помощью операций деления
-        нацело и взятия остатка от деления определить,
-        имеется ли в записи числа N цифра «2». Если имеется,
-        то вывести True, если нет — вывести False.
-array - Дан массив размера N и целые числа K и L (1 Ј K Ј L Ј N).
-        Найти сумму элементов массива с номерами от K до L включительно.
-two dim array - Дана матрица размера M ґ N.
-                Для каждого столбца матрицы найти произведение его элементов.
-*/
-
-
 public class Main {
+    public static Scanner scn = new Scanner(System.in);
+
     public enum Zodiak{
         Aquarius("Водолей"),
-        Fish("Рыбы"),
+        Fish ("Рыбы"),
         Aries("Овен"),
         Calf("Телец"),
         Twins("Близнецы"),
@@ -55,6 +18,9 @@ public class Main {
         Scorpio("Скорпион"),
         Sagittarius("Стрелец"),
         Capricorn("Козерог");
+
+        Zodiak(String myString) {
+        }
     }
     public static class Dots{
         public int x,y;
@@ -65,7 +31,7 @@ public class Main {
     }
 
     /**
-    * @param seconds - is count of seconds
+     *@param seconds is count of seconds
      *@return  count of hours
      *
      * @version 1.0.1
@@ -76,12 +42,12 @@ public class Main {
     }
 
     /**
-     * @param number - is inputted number
-     *@return  are all numbers equal
+     * @param number is inputted number
+     * @return  are all numbers different
      *
      * @version 1.0.1
      * @author D. Stefurak
-     */
+    */
     public static boolean areAllNumbersDifferent(int number){
         if (((number % 10)!=(number / 10 % 10))&&((number % 10)!=(number / 100))&&((number / 10 % 10)!=(number / 100))){
             return true;
@@ -92,14 +58,14 @@ public class Main {
     }
 
     /**
-     * @param a - is a dot, with x,y position
-     * @param b - is a dot, with x,y position
-     * @param c - is a dot, with x,y position
-     *@return  a string with information, which dot is closer to a, and distance between them
+     * @param a is a dot, with x,y position
+     * @param b is a dot, with x,y position
+     * @param c is a dot, with x,y position
+     * @return a string with information, which dot is closer to a, and distance between them
      *
      * @version 1.0.1
      * @author D. Stefurak
-     */
+    */
     public static String whoIsCloser(Dots a, Dots b, Dots c){
         String result = "";
 
@@ -113,8 +79,16 @@ public class Main {
         return result;
     }
 
+    /**
+     * @param day is integer number of day
+     * @param month is integer number of month
+     * 
+     * @return current Zodiak sign, at current day in current month
+     * 
+     * @version 1.0.0
+     * @author D. Stefurak
+    */
     public static String printZodiac(int day, int month){
-        String result = "";
         switch(month){
             case 1:
                 if(day <= 20){
@@ -123,39 +97,213 @@ public class Main {
                 else{
                     return Zodiak.Aquarius.toString();
                 }
-                break;
             case 2:
-                break;
+                if(day <= 19){
+                    return Zodiak.Fish.toString();
+                }
+                else{
+                    return Zodiak.Aries.toString();
+                }
             case 3:
-                break;
+                if(day <= 21){
+                    return Zodiak.Aries.toString();
+                }
+                else{
+                    return Zodiak.Calf.toString();
+                }
             case 4:
-                break;
+                if(day <= 20){
+                    return Zodiak.Calf.toString();
+                }
+                else{
+                    return Zodiak.Twins.toString();
+                }
             case 5:
-                break;
+                if(day <= 21){
+                    return Zodiak.Twins.toString();
+                }
+                else{
+                    return Zodiak.Cancer.toString();
+                }
             case 6:
-                break;
+                if(day <= 22){
+                    return Zodiak.Cancer.toString();
+                }
+                else{
+                    return Zodiak.Lion.toString();
+                }
             case 7:
-                break;
+                if(day <= 23){
+                    return Zodiak.Lion.toString();
+                }
+                else{
+                    return Zodiak.Virgo.toString();
+                }
             case 8:
-                break;
+                if(day <= 23){
+                    return Zodiak.Virgo.toString();
+                }
+                else{
+                    return Zodiak.Libra.toString();
+                }
             case 9:
-                break;
+                if(day <= 23){
+                    return Zodiak.Libra.toString();
+                }
+                else{
+                    return Zodiak.Scorpio.toString();
+                }
             case 10:
-                break;
+                if(day <= 23){
+                    return Zodiak.Scorpio.toString();
+                }
+                else{
+                    return Zodiak.Sagittarius.toString();
+                }
             case 11:
-                break;
+                if(day <= 23){
+                    return Zodiak.Sagittarius.toString();
+                }
+                else{
+                    return Zodiak.Capricorn.toString();
+                }
             case 12:
-                break;
+                if(day <= 22){
+                    return Zodiak.Capricorn.toString();
+                }
+                else{
+                    return Zodiak.Aquarius.toString();
+                }
+            default:
+                return "None";
         }
+    }
 
+
+    /**
+     * @param number number for factorial calculation
+     * @return factorial of current number 
+     * 
+     * @version 1.0.1
+     * @author D. Stefurak
+    */
+    static long factorial(long number){
+        if (number == 1 || number == 0)
+            return 1;
+        else
+            return number * factorial(number - 1);
+    }
+    /**
+     * @param n - count of elements in sum
+     * @return sum of factorials of N elements in auto incr.
+     * 
+     * @version 1.0.2
+     * @author D. Stefurak 
+    */
+    public static long findSumOfFactorials(long n){
+        long result = 0;
+        for(long i = 1; i <= n; i++){
+            result += factorial(i);
+        }
         return result;
+    }
+
+    /**
+     * @param n - number for searching
+     * @return if number contain "2"
+     * 
+     * @version 1.0.2
+     * @author D. Stefurak 
+    */
+    public static boolean isTwoPresent(int n){
+        boolean result = false;
+        while(n>0){
+            n/=10;
+            if(n % 10 == 2)
+                result = true;
+        }
+        return result;
+    }
+
+    /**
+     * @param array - array of integers
+     * @param l - left border
+     * @param r - right border
+     * @return sum of elements between two borders
+     * 
+     * @version 1.0.2
+     * @author D. Stefurak 
+    */
+    public static long calcArrayBorders(int[] array, int l, int r){
+        long result = 0;
+        if(array.length == 0){
+            System.out.println("[calcArrayBorders] Array is empty");
+        }
+        else if(l < array.length && l >= 0 && l < r && r <= array.length){
+            for(int i = l; i <= r; i++){
+                result += array[i];
+            }
+        }
+        else{
+            System.out.println("[calcArrayBorders] Something is going wrong with borders");
+        }
+        return result;
+    }
+
+    public static int[][] calcMatrix(int matrix[][]){
+        //matrix.length;
+        //matrix[0].length;
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                matrix[i][j] *= matrix[i][j];
+            }
+        }
+        return matrix;
+    }
+
+    /**
+     * @param array Array of integer
+     * @param size Size of array
+     * @return filled array
+     *
+     * @version 1.0.0
+     * @author D. Stefurak
+     * */
+    public static int[] inputArray(int[] array, int size){
+        array = new int[size];
+        System.out.println("Enter integer element of array:");
+        for(int i = 0; i < size; i++){
+            array[i] = scn.nextInt();
+        }
+        return array;
+    }
+
+    /**
+     * @param matrix Matrix of integer
+     *
+     * @version 1.0.0
+     * @author D. Stefurak
+     * */
+    public static void outputMatrix(int[][] matrix){
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                System.out.print(matrix[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 
     public static void main(String[] args){
         Dots a = new Dots(5,9),b= new Dots(-4,12),c = new Dots(15,0);
-
+        int[] array = {1,4,87,5,67,3,9,6,7,0,3,5,6,8,34,22,35,65,7,8,5,6,7,0,10,12,1};
+        int[][] matrix = {{1,8,3},{2,4,5},{7,8,9}};
         System.out.println(calcHours(12000));
         System.out.println(areAllNumbersDifferent(122));
         System.out.println(whoIsCloser(a,b,c));
+        System.out.println(printZodiac(5,5));
+        System.out.println(findSumOfFactorials(4));
+        System.out.println(isTwoPresent(146));
+        System.out.println(calcArrayBorders(array,2,7));
+        outputMatrix(calcMatrix(matrix));
     }
 }

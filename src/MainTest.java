@@ -3,7 +3,7 @@ import org.opentest4j.*;
 import org.junit.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Main_test {
+class MainTest {
 
     @Test
     public void calcHoursTest_Pos(){
